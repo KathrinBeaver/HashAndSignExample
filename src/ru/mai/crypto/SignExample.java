@@ -13,7 +13,7 @@ public class SignExample {
 
     private SecretKey secretKey;
 
-    public void testHashAlgorithms() {
+    public void testSignAlgorithms() {
         System.out.println("------ AES -----");
         testAES("Очень секретная строка");
         testAES("Hello");
@@ -27,7 +27,9 @@ public class SignExample {
             keyGenerator.init(256);
             this.secretKey = keyGenerator.generateKey();
 
-            for (int i = 0; i < 2; i++) {
+            System.out.println(this.secretKey);
+
+            for (int i = 0; i < 10; i++) {
                 System.out.println("---- Iteration " + (i + 1));
                 byte[] cypher = makeAes(data.getBytes(), Cipher.ENCRYPT_MODE);
                 System.out.println(cypher);

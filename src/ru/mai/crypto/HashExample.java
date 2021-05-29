@@ -16,10 +16,16 @@ public class HashExample {
         System.out.println("мама".hashCode());
         System.out.println("ляля".hashCode());
 
+        System.out.println(hashMD5("мама"));
+        System.out.println(hashMD5("ляля"));
+
+
+
         // MD5
         System.out.println("------ MD5 -----");
         String hashIncorrectPassword = "35454B055CC325EA1AF2126E27707052";
         String hashCorrectPassword = "0f6e4a1df0cf5ee97c2066953bed21b2";
+
         String password = "StrongPassword";
 
         if (hashMD5(password).equals(hashIncorrectPassword)) {
