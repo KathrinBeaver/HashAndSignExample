@@ -16,7 +16,7 @@ public class Base64Example {
                 System.out.print(b + " ");
             }
             String encodedStr = new String(encodedData);
-            System.out.println(encodedStr);
+            System.out.println("\n" + encodedStr);
 
             // Base64 decode
             byte[] resData = Base64.getDecoder().decode(encodedData);

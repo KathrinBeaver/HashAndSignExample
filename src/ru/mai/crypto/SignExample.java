@@ -25,15 +25,12 @@ public class SignExample {
 
             System.out.println(this.secretKey.getAlgorithm());
 
-            for (int i = 0; i < 1; i++) {
-                System.out.println("---- Iteration " + (i + 1));
-                byte[] cypher = makeAes(data.getBytes(), Cipher.ENCRYPT_MODE);
-                System.out.println(cypher);
-                System.out.println(new String(cypher));
-                byte[] src = makeAes(cypher, Cipher.DECRYPT_MODE);
-                System.out.println(src);
-                System.out.println(new String(src));
-            }
+            byte[] cypher = makeAes(data.getBytes(), Cipher.ENCRYPT_MODE);
+            System.out.println(cypher);
+            System.out.println(new String(cypher));
+            byte[] src = makeAes(cypher, Cipher.DECRYPT_MODE);
+            System.out.println(src);
+            System.out.println(new String(src));
 
         } catch (NoSuchAlgorithmException e) {
             System.out.println("ERROR: " + e.getMessage());
