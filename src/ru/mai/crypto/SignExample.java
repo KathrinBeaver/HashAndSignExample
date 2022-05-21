@@ -3,11 +3,7 @@ package ru.mai.crypto;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
-import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
-import java.security.Signature;
-import java.security.spec.PKCS8EncodedKeySpec;
-import java.util.Base64;
 
 public class SignExample {
 
@@ -27,9 +23,9 @@ public class SignExample {
             keyGenerator.init(256);
             this.secretKey = keyGenerator.generateKey();
 
-            System.out.println(this.secretKey);
+            System.out.println(this.secretKey.getAlgorithm());
 
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 1; i++) {
                 System.out.println("---- Iteration " + (i + 1));
                 byte[] cypher = makeAes(data.getBytes(), Cipher.ENCRYPT_MODE);
                 System.out.println(cypher);
@@ -40,7 +36,7 @@ public class SignExample {
             }
 
         } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+            System.out.println("ERROR: " + e.getMessage());
         }
     }
 
@@ -51,7 +47,7 @@ public class SignExample {
             byte [] output = cipher.doFinal(rawMessage);
             return output;
         } catch (Exception e){
-            e.printStackTrace();
+            System.out.println("ERROR: " + e.getMessage());
             return null;
         }
     }

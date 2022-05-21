@@ -11,7 +11,7 @@ public class Base64Example {
         try {
             // Base64 encode
             byte[] encodedData = Base64.getEncoder().encode(data.getBytes("UTF-8"));
-//            System.out.println(encodedData);
+            System.out.println(encodedData);
             for(byte b : data.getBytes("UTF-8")) {
                 System.out.print(b + " ");
             }
@@ -20,16 +20,16 @@ public class Base64Example {
 
             // Base64 decode
             byte[] resData = Base64.getDecoder().decode(encodedData);
-//            System.out.println(resData);
+            System.out.println("\n" + resData);
 
             for(byte b : resData) {
                 System.out.print(b + " ");
             }
             String resStr = new String(resData, "UTF-8");
-            System.out.println(resStr);
+            System.out.println("\n" + resStr);
 
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            System.out.println("ERROR: " + e.getMessage());
         }
     }
 

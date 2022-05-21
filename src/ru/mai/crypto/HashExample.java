@@ -19,21 +19,19 @@ public class HashExample {
         System.out.println(hashMD5("мама"));
         System.out.println(hashMD5("ляля"));
 
-
-
         // MD5
         System.out.println("------ MD5 -----");
-        String hashIncorrectPassword = "35454B055CC325EA1AF2126E27707052";
+//        String hashIncorrectPassword = "35454B055CC325EA1AF2126E27707052";
         String hashCorrectPassword = "0f6e4a1df0cf5ee97c2066953bed21b2";
 
         String password = "StrongPassword";
 
-        if (hashMD5(password).equals(hashIncorrectPassword)) {
-            System.out.println("Correct password");
-        } else {
-            System.out.println("Incorrect password");
-        }
-        System.out.println(hashMD5(password));
+//        if (hashMD5(password).equals(hashIncorrectPassword)) {
+//            System.out.println("Correct password");
+//        } else {
+//            System.out.println("Incorrect password");
+//        }
+//        System.out.println(hashMD5(password));
 
         if (hashMD5(password).equals(hashCorrectPassword)) {
             System.out.println("Correct password");
@@ -58,7 +56,7 @@ public class HashExample {
             byte[] hash = digest.digest(text.getBytes(StandardCharsets.UTF_8));
             return bytesToHexV2(hash);
         } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+            System.out.println("ERROR: " + e.getMessage());
         }
         return null;
     }
@@ -76,7 +74,7 @@ public class HashExample {
 //            return bytesToHexV1(hash);
             return bytesToHexV2(hash);
         } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+            System.out.println("ERROR: " + e.getMessage());
         }
         return null;
     }
